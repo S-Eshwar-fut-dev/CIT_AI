@@ -142,12 +142,15 @@ const CreditsPieChart = () => {
         <p>No data available for the selected department and regulation.</p>
       )}
 
-      {viewMode === "table" && (
-        <Table
-          semesterData={semesterData}
-          categoryData={categoryData}
-          categoryMapping={categoryMapping}
-        />
+      {viewMode === "table" && Object.keys(semesterData).length != 0 && (
+        <>
+          <Table
+          
+            semesterData={semesterData}
+            categoryData={categoryData}
+            categoryMapping={categoryMapping}
+          />
+        </>
       )}
     </div>
   );
