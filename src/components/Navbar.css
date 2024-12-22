@@ -1,0 +1,38 @@
+/* NavBar container */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  /* Space out nav items evenly */
+  align-items: center;
+  background-color: #1e1e1e;
+  padding: 10px 20px;
+  border-bottom: 2px solid #252525;
+  border-radius: 0 0 10px 10px;
+  /* Rounded bottom edges */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Individual nav items */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 12px;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+
+.nav-item:hover {
+  background-color: #252525;
+  color: #64b5f6;
+  transform: translateY(-2px);
+  /* Lift effect */
+}
+
+.nav-item span {
+  margin: 0;
+}

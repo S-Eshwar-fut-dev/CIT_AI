@@ -1,0 +1,48 @@
+.main_content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #121212;
+}
+/* 
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.add-course-btn,
+.submit-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.add-course-btn {
+  background-color: #64b5f6;
+  color: white;
+}
+
+.add-course-btn:hover {
+  background-color: #90caf9;
+}
+
+.submit-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.submit-btn:hover {
+  background-color: #66bb6a;
+} */
+
+.welcome-msg
+{
+  font-size: 24px;
+  color: white;
+  text-align: center;
+}

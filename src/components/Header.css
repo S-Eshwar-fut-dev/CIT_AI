@@ -1,0 +1,47 @@
+.header {
+  background-color: #1e1e1e;
+  padding: 3px 20px;
+  color: #90caf9;
+  border-bottom: 2px solid #252525;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: space-between;
+}
+
+#logo {
+  height: 50px;
+  margin-left: 20px;
+  border-radius: 10px;
+}
+#credits-button {
+  background-color: grey;
+  color: whitesmoke;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+  border: none;
+  cursor: pointer;
+}
+
+#credits-button:hover,
+#credits-button:focus {
+  background-color: lightgrey;
+  color: black;
+  outline: none;
+}
+
+#credits-button:active {
+  background-color: #000000;
+  color: grey;
+  transform: none;
+}
+
+#logo-container{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
