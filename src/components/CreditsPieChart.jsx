@@ -3,8 +3,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Chart from "./Chart"; // Import the Chart component
 import Table from "./Table"; // Import the Table component
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 const CreditsPieChart = () => {
+
+  const navigate = useNavigate();
   const [departments] = useState([
     { id: 1, name: "CSE" },
     { id: 2, name: "IT" },
@@ -82,12 +86,31 @@ const CreditsPieChart = () => {
   };
 
   return (
-    <div style={{ padding: "20px", textAlign: "center" }}>
-      <h1>Department Courses Overview</h1>
-      <div>
+    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
+      <h1 style={{ marginBottom: "20px", textAlign: "center" }}>
+        Department Courses Overview
+      </h1>
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexWrap: "wrap",
+          marginBottom: "20px",
+          gap: "15px",
+        }}
+      >
         <select
           onChange={(e) => setSelectedDept(e.target.value)}
           value={selectedDept}
+          style={{
+            padding: "10px",
+            fontSize: "16px",
+            borderRadius: "5px",
+            border: "1px solid #ddd",
+            width: "200px",
+          }}
         >
           <option value="">Select a Department</option>
           {departments.map((dept) => (
@@ -96,15 +119,17 @@ const CreditsPieChart = () => {
             </option>
           ))}
         </select>
-      </div>
 
-      <div style={{ margin: "10px 0" }}>
-        <label htmlFor="regulation-select">Select Regulation:</label>
         <select
-          id="regulation-select"
           onChange={(e) => setSelectedReg(e.target.value)}
           value={selectedReg}
-          style={{ marginLeft: "10px" }}
+          style={{
+            padding: "10px",
+            fontSize: "16px",
+            borderRadius: "5px",
+            border: "1px solid #ddd",
+            width: "200px",
+          }}
         >
           {regulations.map((reg, index) => (
             <option key={index} value={reg}>
@@ -112,21 +137,62 @@ const CreditsPieChart = () => {
             </option>
           ))}
         </select>
-      </div>
 
-      <div style={{ margin: "20px 0" }}>
         <button
           onClick={() => handleViewChange("chart")}
           disabled={viewMode === "chart"}
+          style={{
+            padding: "10px 20px",
+            fontSize: "16px",
+            borderRadius: "5px",
+            border: "none",
+            backgroundColor: viewMode === "chart" ? "#bbb" : "#007bff",
+            color: "#fff",
+            cursor: viewMode === "chart" ? "not-allowed" : "pointer",
+            width: "150px",
+          }}
         >
           View Chart
         </button>
+
         <button
           onClick={() => handleViewChange("table")}
           disabled={viewMode === "table"}
+          style={{
+            padding: "10px 20px",
+            fontSize: "16px",
+            borderRadius: "5px",
+            border: "none",
+            backgroundColor: viewMode === "table" ? "#bbb" : "#007bff",
+            color: "#fff",
+            cursor: viewMode === "table" ? "not-allowed" : "pointer",
+            width: "150px",
+          }}
         >
           View Table
         </button>
+
+        <button
+          onClick={() => navigate(-1)}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "10px 20px",
+            fontSize: "16px",
+            borderRadius: "5px",
+            border: "none",
+            backgroundColor: "#28a745",
+            color: "#fff",
+            cursor: "pointer",
+            width: "150px",
+            gap: "10px",
+          }}
+        >
+          <FontAwesomeIcon icon={faHome} />
+          Home
+        </button>
+
       </div>
 
       {viewMode === "chart" &&
@@ -139,18 +205,17 @@ const CreditsPieChart = () => {
         )}
 
       {viewMode === "chart" && Object.keys(semesterData).length === 0 && (
-        <p>No data available for the selected department and regulation.</p>
+        <p style={{
+          marginInlineStart: "450px"
+        }}>No data available for the selected department and regulation.</p>
       )}
 
-      {viewMode === "table" && Object.keys(semesterData).length != 0 && (
-        <>
-          <Table
-          
-            semesterData={semesterData}
-            categoryData={categoryData}
-            categoryMapping={categoryMapping}
-          />
-        </>
+      {viewMode === "table" && Object.keys(semesterData).length !== 0 && (
+        <Table
+          semesterData={semesterData}
+          categoryData={categoryData}
+          categoryMapping={categoryMapping}
+        />
       )}
     </div>
   );

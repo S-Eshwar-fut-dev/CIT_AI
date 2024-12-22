@@ -15,6 +15,7 @@ const darkTheme = createTheme({
 const providers = [{ id: "credentials", name: "Email and password" }];
 
 // SignIn function to validate credentials
+// SignIn function to validate credentials
 const signIn = async (
   provider,
   formData,
@@ -33,9 +34,12 @@ const signIn = async (
       );
 
       if (user) {
-        // If a match is found, proceed with login
+        // If a match is found, extract the department from the email
+        const department = email?.split("--")[0]?.replace("DEPT-OF-", "");
+
+        // If the department is successfully extracted, proceed
         setIsLoggedIn(true);
-        navigate("/select-department"); // Redirect to select-department page
+        navigate("/select-department", { state: { dept: department } }); // Pass dept as state
         resolve({
           type: "CredentialsSignin",
           error: null, // No error for successful login
