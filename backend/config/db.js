@@ -1,13 +1,13 @@
-import pkg from 'pg';
+import pkg from "pg";
 const { Pool } = pkg;
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 dotenv.config();
 const pool = new Pool({
   host: "localhost",
   user: "postgres",
-  password: "arjuncoc101",
-  database: "curriculum",
-  port: 5432,
+  password: "esh10@123",
+  database: "Faculty Database",
+  port: 5432,
 });
 
 pool
